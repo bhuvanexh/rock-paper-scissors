@@ -1,0 +1,578 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    border: 0;
+    border-style: none;
+    outline: 0;
+    background-color: inherit;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    font-weight: 400;
+}
+
+html body {
+    min-height: 95vh;
+    background: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    overflow-x: hidden;
+
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+header {
+    margin-top: 2em;
+    width: 50%;
+    padding: .8em 1em;
+    border-radius: 10px;
+    display: flex;
+    margin-inline: auto;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid hsl(189, 59%, 53%);
+}
+
+.info {
+    width: 50%;
+    text-align: left;
+}
+
+.info h1 {
+    width: 40%;
+    min-width: 140px;
+    line-height: .8em;
+    color: white;
+    font-weight: 500;
+}
+
+
+.score {
+    width: 50%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.box {
+    display: flex;
+    width: 30%;
+    min-width: 100px;
+    flex-direction: column;
+    background-color: #fff;
+    align-items: center;
+    border-radius: 5px;
+    padding-block: .5em .3em;
+
+}
+
+.liveScore {
+    font-size: 2.8em;
+}
+
+main {
+    padding: 4em 0 0;
+}
+
+.container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    margin-inline: auto;
+}
+
+.btnTop,
+.btnDown {
+
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    gap: 1em;
+}
+
+.btnDown::after {
+    content: '';
+    width: 11px;
+    height: 140px;
+    background-color: rgba(0, 0, 0, 0.496);
+    position: absolute;
+    transform: rotate(45deg);
+    left: 60%;
+    z-index: -1;
+    top: -31%;
+}
+
+.btnDown::before {
+    content: '';
+    width: 11px;
+    height: 140px;
+    background-color: rgba(0, 0, 0, 0.496);
+    position: absolute;
+    transform: rotate(315deg);
+    left: 39%;
+    z-index: -1;
+    top: -31%;
+}
+
+.btnTop::before {
+    content: '';
+    width: 11px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.496);
+    position: absolute;
+    transform: rotate(90deg);
+    left: 50%;
+    top: -10%;
+    z-index: -1;
+
+}
+
+
+
+.btnDiv {
+    background-color: #fff;
+    /* padding: 1em; */
+    display: grid;
+    place-items: center;
+    width: 200px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.rock:hover,
+.paper:hover,
+.scissors:hover {
+    cursor: pointer;
+    background-color: rgb(255, 255, 15);
+}
+
+.btnDiv img {
+    width: 65px;
+}
+
+.paperO {
+    border: 15px solid blue;
+    box-shadow: 0px 2px 1px 1px rgb(88, 102, 173), inset 0.5px 4px rgb(207, 195, 195);
+}
+
+.scissorsO {
+    border: 15px solid rgb(255, 200, 83);
+    box-shadow: 0px 2px 1px 1px rgb(184, 179, 126), inset 0.5px 4px rgb(197, 158, 158);
+}
+
+.rockO {
+    border: 15px solid rgb(252, 54, 54);
+    box-shadow: 0px 2px 1px 1px rgb(139, 45, 45), inset 0.5px 4px rgb(207, 195, 195);
+}
+
+
+.onSelection {
+    width: 83.28%;
+    gap: 1em;
+    display: flex;
+    margin-inline: auto;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.resDiv {
+    display: flex;
+    flex-direction: column;
+    height: 334px;
+    align-items: center;
+    gap: 4em;
+    color: white;
+    position: relative;
+}
+
+.selectedBtn {
+    width: 250px;
+}
+
+.selectedBtn img {
+    width: 100px;
+}
+
+.hollow {
+    width: 150px;
+    aspect-ratio: 1;
+    background-color: rgba(13, 12, 12, 0.487);
+    border-radius: 50%;
+    position: absolute;
+    top: 35%;
+    z-index: -1;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4em;
+    height: min-content;
+    align-items: center;
+    color: white;
+}
+
+.result span {
+    font-size: 2.5em;
+}
+
+.result button {
+    font-size: 1em;
+    color: black;
+    padding: .5em 2em;
+    border-radius: 4px;
+    background-color: #fff;
+
+}
+
+.winner {
+    position: relative;
+    box-shadow: 0 0 0 100px rgba(118, 154, 194, 0.1);
+    animation: glow2 4s ease-in-out .3s infinite both;
+}
+
+.winner::after {
+    content: '';
+    position: absolute;
+    width: 350px;
+    border-radius: 50%;
+    z-index: -1;
+    aspect-ratio: 1;
+    background-color: rgba(118, 154, 194, 0.1);
+    animation: glow1 4s ease-in-out .3s infinite both;
+
+}
+
+.winner::before {
+    content: '';
+    position: absolute;
+    width: 540px;
+    border-radius: 50%;
+    z-index: -1;
+    aspect-ratio: 1;
+    background-color: rgba(118, 154, 194, 0.1);
+    animation: glow3 4s ease-in-out .3s infinite both;
+}
+
+@keyframes glow3 {
+    from {
+        width: 250px;
+    }
+
+    50% {
+        width: 540px;
+    }
+
+    to {
+        width: 250px;
+    }
+}
+
+@keyframes glow2 {
+    from {
+        box-shadow: 0 0 0 0px rgba(118, 154, 194, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 0 100px rgba(118, 154, 194, 0.1);
+    }
+
+    to {
+        box-shadow: 0 0 0 0px rgba(118, 154, 194, 0.1);
+    }
+}
+
+@keyframes glow1 {
+    from {
+        width: 250px;
+    }
+
+    50% {
+        width: 350px;
+    }
+
+    to {
+        width: 250px;
+    }
+}
+
+.rules {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 20%;
+}
+
+.rulesInner {
+    display: flex;
+    height: 60%;
+    gap: 1em;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 2em;
+    border: 2px solid rgba(33, 2, 8, 0.486);
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1em;
+
+}
+
+.rulesBtnDiv {
+    width: 100%;
+    padding-inline: 1em;
+    position: absolute;
+    top: 90%;
+    left: 0%;
+    display: flex;
+    justify-content: end;
+}
+
+.rulesbtn {
+    color: #fff;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: .5em 2em;
+}
+
+.rulesbtn:hover,
+.closeRules:hover,
+#reset:hover {
+    color: rgb(133, 24, 24);
+    cursor: pointer;
+    outline: 1px solid rgb(0, 0, 0);
+}
+
+@media(max-width:850px) {
+    header {
+        width: 70%;
+        font-size: .9em;
+    }
+
+    main {
+        padding-top: 5em;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .onSelection {
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+
+    .resDiv {
+        height: 280px;
+    }
+
+    .player {
+        grid-column: 1/2;
+    }
+
+    .pc {
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
+    .btnDiv {
+        width: 160px;
+    }
+
+    .btnDiv img {
+        width: 55px;
+    }
+
+    .btnTop::before {
+        top: -30%;
+    }
+
+    .hollow {
+        width: 100px;
+    }
+
+    .result {
+        grid-column: 1/3;
+    }
+
+    .result span {
+        font-size: 3.5em;
+    }
+
+    .result button {
+        font-size: 1em;
+    }
+
+    .rulesbtn {
+        left: 42%;
+        top: 90%
+    }
+
+    .rulesBtnDiv {
+        position: relative;
+        justify-content: center;
+        margin-block: 2em 1em;
+    }
+
+    @keyframes glow1 {
+        from {
+            width: 160px;
+        }
+
+        50% {
+            width: 350px;
+        }
+
+        to {
+            width: 160px;
+        }
+    }
+
+    @keyframes glow3 {
+        from {
+            width: 160px;
+        }
+
+        50% {
+            width: 450px;
+        }
+
+        to {
+            width: 160px;
+        }
+    }
+
+    @keyframes glow2 {
+        from {
+            box-shadow: 0 0 0 0px rgba(118, 154, 194, 0.1);
+        }
+
+        50% {
+            box-shadow: 0 0 0 50px rgba(118, 154, 194, 0.1);
+        }
+
+        to {
+            box-shadow: 0 0 0 0px rgba(118, 154, 194, 0.1);
+        }
+    }
+}
+
+@media(max-width:450px) {
+    header {
+        width: 80%;
+    }
+
+    main {
+        padding-top: 6em;
+    }
+
+    .info h1 {
+        font-size: 1.6em;
+        width: min-content;
+        min-width: min-content;
+    }
+
+    .liveScore {
+        font-size: 2em;
+    }
+
+    .box {
+        width: 80%;
+        min-width: min-content;
+    }
+
+    .btnDiv {
+        width: 130px;
+    }
+
+    .btnDiv img {
+        width: 45px;
+    }
+
+    .btnTop::before {
+        top: 10%;
+        height: 100px;
+    }
+
+    @keyframes glow1 {
+        from {
+            width: 130px;
+        }
+
+        50% {
+            width: 300px;
+        }
+
+        to {
+            width: 130px;
+        }
+    }
+
+    @keyframes glow3 {
+        from {
+            width: 130px;
+        }
+
+        50% {
+            width: 400px;
+        }
+
+        to {
+            width: 130px;
+        }
+    }
+
+    @keyframes glow2 {
+        from {
+            box-shadow: 0 0 0 0px rgba(118, 154, 194, 0.1);
+        }
+
+        50% {
+            box-shadow: 0 0 0 40px rgba(118, 154, 194, 0.1);
+        }
+
+        to {
+            box-shadow: 0 0 0 0px rgba(118, 154, 194, 0.1);
+        }
+    }
+}
+
+.hide {
+    display: none;
+}

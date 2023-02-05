@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="info">
+            <h1>
+                ROCK
+                PAPER
+                SCISSORS
+            </h1>
+        </div>
+        <div class="score">
+            <div class="box">
+                <span>SCORE</span>
+                <span class="liveScore">0</span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="btnTop">
+                <div class="paperO btnDiv paper">
+                    <button><img src="./images/icon-paper.svg" alt=""></button>
+                </div>
+                <div class="scissorsO btnDiv scissors">
+                    <button><img src="./images/icon-scissors.svg" alt=""></button>
+                </div>
+            </div>
+            <div class="btnDown">
+                <div class="rockO btnDiv rock">
+                    <button><img src="./images/icon-rock.svg" alt=""></button>
+                </div>
+            </div>
+            <div class="rulesBtnDiv">
+                <button class="rulesbtn">RULES</button>
+            </div>
+        </div>
+        <div class="onSelection hide">
+            <div class="player resDiv">
+                <span>YOU PICKED</span>
+                <div class="selectedBtn btnDiv youPicked">
+                    <button><img class="youPimg" src="./images/icon-rock.svg" alt=""></button>
+                </div>
+            </div>
+            <div class="result hide">
+                <span>YOU LOSE</span>
+                <button id="reset">PLAY AGAIN</button>
+            </div>
+            <div class="pc resDiv">
+                <span>THE HOUSE PICKED</span>
+                <div class="selectedBtn btnDiv hide pcR">
+                    <button class="pcRBtn"><img class="pcRImg" src="./images/icon-rock.svg" alt=""></button>
+                </div>
+                <div class="hollow"></div>
+            </div>
+        </div>
+        <div class="rules">
+            <div class="rulesInner">
+                <span>RULES</span>
+                <img src="./images/image-rules.svg" alt="">
+                <button class="closeRules"><img src="./images/icon-close.svg" alt=""></button>
+            </div>
+        </div>
+
+
+    </main>
+    <script src="index.js"></script>
+</body>
+
+</html>
